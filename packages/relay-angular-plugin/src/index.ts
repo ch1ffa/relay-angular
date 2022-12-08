@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { AngularWebpackPlugin } from '@ngtools/webpack';
-import { ivy } from '@ngtools/webpack';
 import relayTransform from 'ts-relay-plugin';
 function findAngularWebpackPlugin(webpackCfg): any | null {
     return webpackCfg.plugins.find((plugin) =>
-        AngularWebpackPlugin ? plugin instanceof AngularWebpackPlugin : plugin instanceof ivy.AngularWebpackPlugin,
+        AngularWebpackPlugin ? plugin instanceof AngularWebpackPlugin : plugin instanceof AngularWebpackPlugin,
     );
     // plugin instanceof AngularWebpackPlugin angular > 12
     // plugin instanceof ivy.AngularWebpackPlugin angular == 11

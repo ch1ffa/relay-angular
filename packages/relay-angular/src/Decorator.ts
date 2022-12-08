@@ -4,7 +4,7 @@ import { KeyType, ArrayKeyType, QueryOptions } from './RelayHooksTypes';
 export const PROP_METADATA = '__prop__metadata__';
 
 export function noSideEffects<T>(fn: () => T): T {
-    return ({ toString: fn }.toString() as unknown) as T;
+    return { toString: fn }.toString() as unknown as T;
 }
 
 const mapResolverTarget = new Map();
@@ -97,9 +97,7 @@ export function makeQueryDecorator(decoratorName: string, resolve: (decoratorNam
     return noSideEffects(() => {
         function PropDecoratorFactory<TOperationType extends OperationType>(
             this: unknown | typeof PropDecoratorFactory,
-            props: (
-                _this: any,
-            ) => {
+            props: (_this: any) => {
                 query: GraphQLTaggedNode;
                 variables?: TOperationType['variables'];
                 options?: QueryOptions;
@@ -138,9 +136,7 @@ export function makeFragmentsDecorator(decoratorName: string, resolve: (decorato
     return noSideEffects(() => {
         function PropDecoratorFactory<TKey extends KeyType | ArrayKeyType>(
             this: unknown | typeof PropDecoratorFactory,
-            props: (
-                _this: any,
-            ) =>
+            props: (_this: any) =>
                 | {
                       fragmentNode: GraphQLTaggedNode;
                       fragmentRef: TKey;

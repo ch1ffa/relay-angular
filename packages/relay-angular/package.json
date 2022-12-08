@@ -1,6 +1,6 @@
 {
-  "name": "relay-angular",
-  "version": "1.0.0",
+  "name": "@ch1ffa/relay-angular",
+  "version": "1.1.0",
   "keywords": [
     "relay",
     "angular",
@@ -13,10 +13,10 @@
   "author": {
     "name": "morrys"
   },
-  "homepage": "https://github.com/morrys/relay-angular",
+  "homepage": "https://github.com/ch1ffa/relay-angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/morrys/relay-angular"
+    "url": "https://github.com/ch1ffa/relay-angular"
   },
   "scripts": {
     "clean": "rimraf lib/*",
@@ -30,14 +30,14 @@
     "fbjs": "^3.0.0"
   },
   "peerDependencies": {
-    "relay-runtime": "^13.0.2",
+    "relay-runtime": ">= 14.0.0",
     "rxjs": ">= 6.0.0"
   },
   "devDependencies": {
-    "rxjs": "~6.4.0",
-    "relay-runtime": "^13.0.2",
-    "@types/relay-runtime": "13.0.1",
     "@types/fbjs": "3.0.0",
-    "@types/node": "13.9.3"
+    "@types/node": "18.11.10",
+    "@types/relay-runtime": "14.1.0",
+    "relay-runtime": "^14.1.0",
+    "rxjs": "~7.5.7"
   }
 }

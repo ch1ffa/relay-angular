@@ -8,7 +8,7 @@ import {
     MutationParameters,
     FragmentSpecResolver,
     VariablesOf,
-    FragmentReference,
+    FragmentType,
     RenderPolicy,
     GraphQLSubscriptionConfig,
     GraphQLResponse,
@@ -73,7 +73,7 @@ export type $Call<Fn extends (...args: any[]) => any> = Fn extends (arg: any) =>
 
 export type KeyType<TData = unknown> = Readonly<{
     ' $data'?: TData;
-    ' $fragmentSpreads': FragmentReference;
+    ' $fragmentSpreads': FragmentType;
 }>;
 export type ArrayKeyType = ReadonlyArray<{ readonly ' $data'?: ReadonlyArray<unknown> } | null>;
 
@@ -125,7 +125,7 @@ export type RefetchFnDynamic<
     TQuery extends OperationType,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     Key extends KeyType | null,
-    TOptions = Options
+    TOptions = Options,
 > = RefetchInexactDynamicResponse<TQuery, TOptions> & RefetchExactDynamicResponse<TQuery, TOptions>;
 
 export type RefetchInexact<TQuery extends OperationType, TOptions> = (data?: unknown) => RefetchFnInexact<TQuery, TOptions>;
@@ -139,8 +139,8 @@ export type RefetchFnBase<TVars, TOptions> = (vars: TVars, options?: TOptions) =
 export type RefetchFnExact<TQuery extends OperationType, TOptions = Options> = RefetchFnBase<VariablesOf<TQuery>, TOptions>;
 export type RefetchFnInexact<TQuery extends OperationType, TOptions = Options> = RefetchFnBase<Partial<VariablesOf<TQuery>>, TOptions>;
 
-export interface ReturnTypeRefetchNode<TQuery extends OperationType, TKey extends KeyType | null, TFragmentData>
-    extends ReturnTypeRefetchSuspenseNode<TQuery, TKey, TFragmentData> {
+export interface ReturnTypeRefetchNode<TQuery extends OperationType, TKey extends KeyType>
+    extends ReturnTypeRefetchSuspenseNode<TQuery, TKey, KeyTypeData<TKey>> {
     isLoading: boolean;
     error: Error | null;
 }
@@ -152,8 +152,8 @@ export type ReturnTypeRefetchSuspenseNode<TQuery extends OperationType, TKey ext
 
 // pagination
 
-export interface ReturnTypePagination<TQuery extends OperationType, TKey extends KeyType | null, TFragmentData>
-    extends ReturnTypePaginationSuspense<TQuery, TKey, TFragmentData> {
+export interface ReturnTypePagination<TQuery extends OperationType, TKey extends KeyType>
+    extends ReturnTypePaginationSuspense<TQuery, TKey, KeyTypeData<TKey>> {
     isLoading: boolean;
     error: Error | null;
 }
