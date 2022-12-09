@@ -31,19 +31,20 @@
   },
   "dependencies": {
     "cosmiconfig": "^8.0.0",
-    "ts-relay-plugin": "^1.0.1"
+    "@ch1ffa/ts-relay-plugin": "^1.1.0"
   },
   "peerDependencies": {
-    "@ngtools/webpack": "^15.0.3",
+    "@ngtools/webpack": "^15.0.0",
     "graphql": "^14.0.0 | ^15.0.0 | ^16.0.0",
     "ngx-build-plus": "^15.0.0",
     "typescript": "~4.8.4"
   },
   "devDependencies": {
-    "@ngtools/webpack": "^15.0.3",
+    "@ch1ffa/ts-relay-plugin": "^1.1.0",
+    "@ngtools/webpack": "^15.0.0",
     "cosmiconfig": "^8.0.0",
     "graphql": "16.6.0",
-    "ngx-build-plus": "^15.0.0",
-    "@ch1ffa/ts-relay-plugin": "^1.1.0"
-  }
+    "ngx-build-plus": "^15.0.0"
+  },
+  "gitHead": "9cdce87502ee8779b6cfd3f6743285e129928b39"
 }
